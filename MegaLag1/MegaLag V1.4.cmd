@@ -1,8 +1,15 @@
 @echo off
 mode con: cols=140 lines=15
-title MegaLag (V1.4 - By Max0824 from GitHub)
+title MegaLag (V1.5)
 cls
-echo Warning: This may make you computer lag so much it will break, and the battery will go down by up to 50%, depending on how long you run it.
+echo Please choose a mode: Basic (Press 1), or Advanced (2).
+pause
+IF "%1"=="1" goto basic
+IF "%1"=="2" goto advanced
+IF NOT "%1"=="1" IF NOT "%1"=="2" goto :error
+:basic
+cls
+echo Warning: This may make you computer lag so much it will break, and it will drain the battery depending on how long you run it.
 echo The current applications that are being run are as follows:
 echo File Explorer
 echo Powershell
@@ -48,3 +55,11 @@ powershell.exe sleep 0.1
 echo Done with all loading! Launching...
 powershell.exe sleep 5
 powershell.exe function MegaLag { start explorer.exe; start powershell.exe; start msedge.exe; start chrome.exe; start firefox.exe; start winword.exe; start excel.exe; start powerpnt.exe; start mspaint.exe; start calc.exe; start dialer.exe; MegaLag; }; MegaLag;
+:advanced
+cls
+echo Dev Note: Make this later.
+pause >nul
+:error
+cls
+echo An unexpected error occured.
+pause >nul
